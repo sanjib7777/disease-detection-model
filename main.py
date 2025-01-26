@@ -13,8 +13,8 @@ model = AutoModelForImageClassification.from_pretrained(MODEL_DIR)
 model.eval()
 
 @app.get("/")
-def home():
-    return {"message": "Plant Disease Detection API is running!"}
+async def read_root():
+    return {"message": "Health Check: API is running"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
